@@ -1,0 +1,24 @@
+<div class="container">
+    <h2 class="titulo-principal">Nuevo usuario</h2>
+    <div class="division">
+        <mat-form-field class="input-nombre">
+            <mat-label>Nombre y apellido</mat-label>
+            <input type="text" [(ngModel)]="nuevoUsuario.nombreCompleto" name="nombre" maxlength="100" matInput required>
+        </mat-form-field>
+        <mat-form-field class="input-nombre">
+            <mat-label>Nombre de usuario</mat-label>
+            <input type="text" [(ngModel)]="nuevoUsuario.username" name="username" maxlength="100" matInput required>
+        </mat-form-field>
+        <mat-form-field class="input-nombre">
+            <mat-label>Contraseña</mat-label>
+            <input type="{{ mostrarContrasenia ? 'text' : 'password' }}" [(ngModel)]="nuevoUsuario.password" name="password" maxlength="100" matInput required/>
+            <mat-icon matSuffix (click)="mostrarContrasenia = !mostrarContrasenia">
+              {{ mostrarContrasenia ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </mat-form-field>
+        <button mat-fab extended color="warn" (click)="submitForm()"
+            [disabled]="!isUserValido()">
+            <span class="text-normal-bold">Crear</span>
+        </button>
+    </div>
+</div>

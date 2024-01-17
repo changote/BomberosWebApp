@@ -1,0 +1,83 @@
+<div>
+    <form *ngIf="step == 1" class="container" (ngSubmit)="onSubmit()" #registerForm="ngForm">
+        <h2 class="titulo-principal">Nuevo reporte</h2>
+        <div class="division">
+            <mat-form-field>
+                <mat-label>Nombre completo</mat-label>
+                <input type="text" name="nombre" maxlength="100" matInput [(ngModel)]="registro.user" required matInput
+                    (ngModelChange)="isFormValid()">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Unidad</mat-label>
+                <mat-select name="unidad" matInput [(ngModel)]="registro.idUnidad" required
+                    (ngModelChange)="isFormValid()">
+                    <mat-option *ngFor="let unidad of unidades" [value]="unidad.unidadId">{{ unidad.nombre
+                        }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Fecha</mat-label>
+                <input matInput disabled [value]="registro.fecha | date:'full'">
+            </mat-form-field>
+        </div>
+        <div class="siguiente">
+            <button mat-fab matTooltip="Primary" color="primary" [disabled]="!formValid">
+                <i class="fa-solid fa-arrow-right fa-2xl"></i>
+            </button>
+        </div>
+    </form>
+    <form *ngIf="step == 2" class="container" #registerForm="ngForm">
+        <h2>{{ unidadElegida }}</h2>
+        <div *ngIf="unidadCompleta?.lateral.length !== 0" style="padding: 1rem;">
+            <div class="division">
+            <div *ngFor="let lateral of unidadCompleta?.lateral; let i = index" class="division-parte">
+                {{ lateral.nombre }}
+                <mat-radio-group [(ngModel)]="registro.lateral.parteList[i].isOk" [name]="'motor_' + lateral.nombre">
+                    <mat-radio-button (click)="asignarIdParte(lateral.parteId, i, true)" class="example-margin" value="true">Si</mat-radio-button>
+                    <mat-radio-button (click)="asignarIdParte(lateral.parteId, i, true)" class="example-margin" value="false">No</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Observaciones</mat-label>
+                <textarea matInput placeholder="Ej: Falta un matafuego en.." name="observacion"
+                    [(ngModel)]="registro.lateral.observacion"></textarea>
+            </mat-form-field>
+        </div>
+        </div>
+        <div *ngIf="unidadCompleta?.motor.length !== 0" style="padding: 1rem;">
+            <div class="division">
+                <div *ngFor="let motor of unidadCompleta?.motor; let i = index" class="division-parte">
+                    {{motor.nombre}}
+                    <mat-radio-group [(ngModel)]="registro.motor.parteList[i].isOk" [name]="'motor_' + motor.nombre">
+                        <mat-radio-button (click)="asignarIdParte(motor.parteId, i, false)" class="example-margin" value="true">Si</mat-radio-button>
+                        <mat-radio-button (click)="asignarIdParte(motor.parteId, i, false)" class="example-margin" value="false">No</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Observaciones</mat-label>
+                    <textarea matInput placeholder="Ej: El motor X no enciende..." name="observacion"
+                        [(ngModel)]="registro.motor.observacion"></textarea>
+                </mat-form-field>
+
+            </div>
+        </div>
+        <div class="anterior">
+            <button mat-fab matTooltip="Primary" color="primary" (click)="switchStep(1)">
+                <i class="fa-solid fa-arrow-right fa-rotate-180 fa-2xl"></i>
+            </button>
+        </div>
+        <div class="siguiente">
+            <button mat-fab matTooltip="Primary" color="primary" [disabled]="!formValid2()" (click)="sendRegistro()">
+                <i class="fa-solid fa-check fa-2xl"></i>
+            </button>
+        </div>
+    </form>
+    <div *ngIf="isOk && step == 3" class="check-container">
+        <img src="../../../assets/img/check.png" alt="" class="check-image">
+        <button (click)="redireccionar()">Aceptar</button>
+    </div>
+    
+    <div *ngIf="!isOk && step == 3" class="check-container">
+        <img src="../../../assets/img/error.png" alt="" class="check-image">
+    </div>
+</div>

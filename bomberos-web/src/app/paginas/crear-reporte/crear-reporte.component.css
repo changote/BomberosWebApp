@@ -1,0 +1,78 @@
+
+.siguiente {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}
+.anterior {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}
+div a img {
+    width: 4rem;
+    height: 1rem;
+}
+.siguiente button {
+    position: fixed;
+    bottom: 15rem;
+    right: 1rem;
+    margin-right: 0.3rem;
+    z-index: 999;
+}
+.anterior button {
+    position: fixed;
+    bottom: 2rem;
+    left: 1rem;
+    margin-left: 0.3rem;
+}
+h2 {
+    text-align: center;
+}
+
+.check-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.check-image {
+  width: 0;
+  animation: agrandar 2s forwards; /* Puedes ajustar la duración según tus preferencias */
+}
+
+@keyframes agrandar {
+  to {
+    width: 300px;
+  }
+}
+
+
+  form.container {
+    position: relative;
+  }
+  
+  form.container.ng-animating {
+    position: absolute;
+  }
+  
+  .division-parte {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    text-align: left!important;
+}
+
+.mat-form-field .mat-form-field-label {
+  color: rgb(0, 118, 236)!important;
+}
+.mat-form-field .mat-input-element {
+  color: rgb(255, 0, 0);
+}

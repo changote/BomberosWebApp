@@ -1,0 +1,60 @@
+<div class="container">
+    <h2 class="titulo-principal">Nueva unidad</h2>
+    <div class="division">
+        <mat-form-field class="input-nombre">
+            <mat-label>Nombre unidad</mat-label>
+            <input type="text" [(ngModel)]="nombreUnidad" name="nombre" maxlength="100" matInput required matInput>
+        </mat-form-field>
+
+        <div class="division">
+            <!-- Crear input lateral -->
+
+
+            <!-- Crear nuevo input lateral -->
+            <div>
+                <mat-form-field class="input-lateral">
+                    <mat-label>Nombre lateral</mat-label>
+                    <input type="text" [(ngModel)]="nombreLateral" maxlength="100" matInput>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" style="background-color: green;" (click)="crearLateralNuevo()" [disabled]="nombreLateral === undefined">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+            <div *ngFor="let lateral of laterales; let i = index">
+                <div class="input-completo">
+                    <mat-form-field>
+                        <input type="text" [(ngModel)]="laterales[i].nombre" maxlength="100" matInput disabled>
+                    </mat-form-field>
+                    <button class="custom-button" (click)="eliminarLateral(i)"><i
+                            class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nombre motor -->
+        <div class="division">
+            <!-- Crear nuevo input motor -->
+            <div>
+                <mat-form-field class="input-lateral">
+                    <mat-label>Nombre motor</mat-label>
+                    <input type="text" [(ngModel)]="nombreMotor" maxlength="100" matInput>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" style="background-color: green;" (click)="crearMotorNuevo()" [disabled]="nombreMotor === undefined">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+            <div *ngFor="let motor of motores; let i = index">
+                <mat-form-field class="input-completo">
+                    <mat-label>Nombre motor</mat-label>
+                    <input type="text" [(ngModel)]="motores[i].nombre" maxlength="100" matInput disabled>
+                </mat-form-field>
+                <button class="custom-button" (click)="eliminarMotor(i)"><i
+                    class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <button mat-fab extended color="warn" (click)="submitForm()"
+            [disabled]="!nombreUnidad || nombreUnidad.trim() === '' || laterales.length == 0">
+            <span class="text-normal-bold">Crear</span>
+        </button>
+    </div>
+</div>

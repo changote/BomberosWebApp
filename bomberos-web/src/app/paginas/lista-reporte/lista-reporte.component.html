@@ -1,0 +1,39 @@
+<div class="container">
+  <h2 class="titulo-principal">Reportes de {{ nombreUnidad?.nombre }}</h2>
+  <mat-form-field>
+    <mat-label>Filtrar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ej: Diego Gomez" #input>
+  </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+      <ng-container matColumnDef="fecha">
+
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="usuario">
+        <th mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td mat-cell *matCellDef="let element"> {{element.user}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lateral" class="parte">
+        <th mat-header-cell *matHeaderCellDef class="parte"> Lateral </th>
+        <td mat-cell *matCellDef="let element" class="parte"><span *ngIf="element.lateralOk"
+            class="green-circle"></span><span *ngIf="!element.lateralOk" class="yellow-circle"></span></td>
+      </ng-container>
+
+      <ng-container matColumnDef="motor" class="parte">
+        <th mat-header-cell *matHeaderCellDef class="parte"> Motor </th>
+        <td mat-cell *matCellDef="let element" class="parte"><span *ngIf="element.motorOk"
+            class="green-circle"></span><span *ngIf="!element.motorOk" class="yellow-circle"></span></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Esta unidad no tiene registros</td>
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[10]" aria-label="Seleccionar pagina"></mat-paginator>
+</div>

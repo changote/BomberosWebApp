@@ -1,0 +1,32 @@
+.footer-principal {
+    background-color: #3c3d41;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 1rem;
+    padding-top: 2rem;
+}
+
+.logo img {
+    height: 3rem;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px;
+    font-size: 30px;
+}
+p {
+    color: white;
+}

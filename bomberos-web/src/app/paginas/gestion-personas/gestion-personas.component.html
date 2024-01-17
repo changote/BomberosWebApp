@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="titulo">
+        <h2 class="titulo-principal">Gestión de Personas</h2>
+        <button mat-mini-fab color="primary" style="background-color: green;" [routerLink]="['/crear-usuario']">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+    <div class="division">
+        <div *ngFor="let usuario of usuarios" class="division-user" [class.bloqueado]="usuario.bloqueado">
+            <div class="user-info">
+                <span>{{ usuario.nombreCompleto }}</span>
+            </div>
+            <div class="user-buttons">
+                <button mat-mini-fab color="primary" [disabled]="usuario.bloqueado">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button mat-mini-fab color="warn" [class.desbloquear]="usuario.bloqueado"
+                    (click)="bajaUser(usuario.userId)">
+                    <i class="fa-solid fa-power-off"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

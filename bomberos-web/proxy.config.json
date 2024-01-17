@@ -1,0 +1,6 @@
+{
+  "/bomberos_rest/": {
+    "target": "http://localhost:8089/",
+    "secure": false
+  }
+}

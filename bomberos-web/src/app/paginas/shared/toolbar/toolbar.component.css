@@ -1,0 +1,23 @@
+.toolbar img {
+    width: 3.5rem;
+}
+.toolbar {
+    height: 5rem;
+    background-color: rgb(201, 201, 201);
+    box-shadow: 1px 1px 3px #9b9b9b;
+    font-size: 2rem;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.toolbar a {
+    text-decoration: none;
+    color: white;
+    font-family: "Roboto","Arial",sans-serif;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    font-weight: 400;
+} 

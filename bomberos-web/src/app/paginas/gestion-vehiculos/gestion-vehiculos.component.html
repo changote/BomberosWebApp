@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="titulo">
+        <h2 class="titulo-principal">Gestión de Vehiculos</h2>
+        <button mat-mini-fab color="primary" style="background-color: green;" [routerLink]="['/crear-vehiculo']">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+    <div class="division">
+        <div *ngFor="let unidad of unidades" class="division-unidad">
+            <div class="unidad-info">
+                <span>{{ unidad.nombre }}</span>
+            </div>
+            <div class="unidad-buttons">
+                <button mat-mini-fab color="primary">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button mat-mini-fab color="warn" (click)="eliminarUnidad(unidad.unidadId)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="unidades == undefined" class="division">
+        <span>No hay vehiculos cargados</span>
+    </div>
+</div>

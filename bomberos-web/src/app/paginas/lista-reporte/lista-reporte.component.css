@@ -1,0 +1,75 @@
+.green-circle {
+  width: 30px;
+  height: 30px;
+  background-color: green;
+  border-radius: 25%;
+  display: inline-block;
+}
+
+.yellow-circle {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(231, 227, 3);
+  border-radius: 25%;
+  display: inline-block;
+}
+
+.green-circle::before {
+  content: '\2713';
+  /* Código Unicode para el símbolo de cheque */
+  color: white;
+  /* Color del símbolo */
+  font-size: 20px;
+  /* Tamaño de la fuente del símbolo */
+  line-height: 30px;
+  /* Ajusta la posición vertical del símbolo */
+  display: inline-block;
+}
+
+/* Estilo para los círculos amarillos con signo de exclamación rojo */
+.yellow-circle::before {
+  content: '\2757';
+  /* Código Unicode para el signo de exclamación */
+  color: red;
+  /* Color del símbolo */
+  font-size: 20px;
+  /* Tamaño de la fuente del símbolo */
+  line-height: 30px;
+  /* Ajusta la posición vertical del símbolo */
+  display: inline-block;
+}
+
+td {
+  max-width: 6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+th {
+  text-align: center;
+  width: 6rem;
+  padding: 0;
+}
+
+td {
+  text-align: center;
+  width: 6rem;
+}
+
+.parte {
+  width: 3rem;
+}
+
+.mdc-data-table__cell,
+.mdc-data-table__header-cell {
+
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  border: 1px solid rgb(158, 158, 158);
+  border-radius: 5px; /* Ajusta el valor según la cantidad de redondeo que desees */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}

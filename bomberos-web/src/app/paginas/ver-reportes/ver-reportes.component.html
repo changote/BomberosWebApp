@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="titulo">
+        <h2 class="titulo-principal">Gestión de Vehiculos</h2>
+    </div>
+    <div class="division">
+        <span>Seleccione la unidad a observar</span>
+        <div *ngFor="let unidad of unidades" class="division-unidad" [routerLink]="['/ver-reportes/', unidad.unidadId]">
+                <div class="unidad-info">
+                    <span>{{ unidad.nombre }}</span>
+                </div>
+        </div>
+    </div>
+</div>

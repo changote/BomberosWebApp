@@ -1,0 +1,13 @@
+<div class="toolbar">
+    <div class="logo">
+        <a href="/"><img src="../../../../../assets/img/logo2.png"></a>
+        <button mat-raised-button color="accent" *ngIf="!usuarioLogueado" (click)="modalLogin()"><span>Iniciar sesion</span></button>
+        <div *ngIf="usuarioLogueado">
+            <a [matMenuTriggerFor]="beforeMenu"><i class="fa-solid fa-helmet-safety"></i> {{ userDetails.nombre | uppercase }}</a>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="panelAdmin()">Panel admin</button>
+              <button mat-menu-item (click)="logout()">Cerrar sesion</button>
+            </mat-menu>
+          </div>
+    </div>
+</div>

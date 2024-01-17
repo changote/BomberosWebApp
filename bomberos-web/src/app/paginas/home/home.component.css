@@ -1,0 +1,30 @@
+div img {
+    height: auto;
+    width: 100%;
+}
+.body {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.crear-reporte {
+    width: 80%;
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 1px 1px 3px #9b9b9b;
+    text-align: center;
+    cursor: pointer;
+    background-color: red;
+}
+
+.crear-reporte div span {
+    color: rgb(255, 251, 0);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.crear-reporte div{
+    padding: 0.5rem;
+}

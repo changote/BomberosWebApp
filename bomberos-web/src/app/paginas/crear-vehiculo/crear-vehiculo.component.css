@@ -1,0 +1,28 @@
+.division .division {
+    margin-bottom: 1rem;
+}
+.input-lateral {
+    width: 12rem;
+    margin-right: 0.5rem;
+}
+.input-nombre {
+    width: 16rem;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+.input-completo {
+    display: flex;
+    align-items: center;
+    width: 15rem;
+}
+.custom-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: black;
+    font-size: 2rem;
+    margin-left: 1rem;
+    padding-bottom: 15px;
+}
